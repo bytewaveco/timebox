@@ -1,0 +1,13 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.vercel
+.env
+dist
+coverage
+**/videos
+**/screenshots
+**/.DS_Store
