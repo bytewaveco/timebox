@@ -11,7 +11,7 @@
       <button class="full-width" @click="app.project = null">
         <icon name="ph:caret-left" /> Back to projects
       </button>
-      <h3>
+      <h4>
         <span id="name">{{ app.project.name }}</span> |
         {{
           useHMS(
@@ -24,7 +24,7 @@
             }, 0),
           )
         }}
-      </h3>
+      </h4>
       <div v-if="!isAddingDuration" class="timer-buttons">
         <button class="full-width" @click="addTimer">Start Timer</button>
         <button class="full-width" @click="isAddingDuration = true">Add Duration</button>
@@ -48,8 +48,7 @@
       </form>
       <div v-for="timer in app.projectTimers" :key="timer.id" class="timer">
         <span>
-          Started on
-          {{ useTime(timer.start_at).format('ddd [the] d [of] MMM YY, hh:mm a') }}
+          {{ useTime(timer.start_at).format('dddd [the] Do [of] MMM YYYY @ hh:mm:ssa') }}
           <br />
           Duration:
           {{
@@ -243,9 +242,11 @@ async function signOut() {
   .timer {
     display: flex;
     justify-content: space-between;
+    column-gap: 1rem;
     padding: 1rem;
     border: 1px solid rgb(var(--c-primary));
     border-radius: 4px;
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -262,6 +263,12 @@ async function signOut() {
     border: 1px solid rgb(var(--c-primary));
     border-radius: 4px;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #name {
+    max-width: none;
   }
 }
 </style>

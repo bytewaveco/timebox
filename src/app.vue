@@ -150,4 +150,18 @@ button {
 .full-width {
   width: 100%;
 }
+
+@media screen and (max-width: 1024px) {
+  body {
+    #__nuxt {
+      main {
+        width: 100%;
+        padding: 2rem;
+        margin: 0;
+        max-width: none;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
 </style>
